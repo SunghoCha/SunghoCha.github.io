@@ -57,3 +57,26 @@ build()를 실행하면 httpSecurity가 가지고 있는 configurer들의 init()
 - `HttpSecurityConfiguration`에서 `HttpSecurity` 객체를 초기화하고, `SpringBootWebSecurityConfiguration`의 `defaultSecurityFilterChain` 메서드에서 이 객체를 사용해 보안 설정을 구성한다.
 - `defaultSecurityFilterChain` 메서드는 `HttpSecurity`의 설정을 바탕으로 `build()` 메서드를 호출하여 `SecurityFilterChain`을 생성한다.
 - `build()` 메서드는 `HttpSecurity`에 설정된 `Configurer`들의 `init()`과 `configure()` 메서드를 호출하여 설정을 적용하고, 최종적인 보안 필터 체인을 만든다.
+
+
+
+
+
+
+
+### 인증 상태 영속성
+
+---
+
+ScurityContextRepository & SecurityContextHolderFilter
+
+
+
+1. ScurityContextRepository 
+
+   - 스프링 시큐리티에서 사용자가 인증을 한 이후 요청에 대해 계속 인증을 유지하기 위해 사용되는 클래스
+
+   - 인증 상태의 영속 메커니즘은 사용자가 인증을 하게 되면 해당 사용자의 인증 정보와 권한이
+
+     SecurityContext에 저장되고 HttpSession을 통해 요청간 영속이 이루어지는 방식이다.
+
